@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SecureAuth — Create Account</title>
+  <meta name="description" content="Create a secure account with password hashing and optional 2FA protection." />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-radial"></div>
+  <div class="particles" id="particles"></div>
+
+  <div class="page-wrapper">
+    <div class="auth-card" style="max-width: 500px;">
+
+      <!-- Brand -->
+      <div class="brand">
+        <div class="brand-icon">🛡️</div>
+        <h1>Create Account</h1>
+        <p>Join with industry-grade security</p>
+      </div>
+
+      <!-- Alert -->
+      <div class="alert" id="alertBox" role="alert">
+        <span id="alertIcon">⚠️</span>
+        <span id="alertMsg"></span>
+      </div>
+
+      <!-- Register Form -->
+      <form id="registerForm" novalidate autocomplete="off">
+
+        <div class="form-group">
+          <label class="form-label" for="username">Username</label>
+          <div class="input-wrapper">
+            <input
+              class="form-input"
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Choose a username (3–30 chars)"
+              autocomplete="username"
+              required
+            />
+            <span class="input-icon">👤</span>
+          </div>
+          <div id="usernameHint" style="font-size:0.75rem; color:var(--text-muted); margin-top:0.3rem;"></div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Email Address</label>
+          <div class="input-wrapper">
+            <input
+              class="form-input"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="your@email.com"
+              autocomplete="email"
+              required
+            />
+            <span class="input-icon">📧</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <div class="input-wrapper">
+            <input
+              class="form-input"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Create a strong password"
+              autocomplete="new-password"
+              required
+            />
+            <span class="input-icon">🔑</span>
+            <button type="button" class="input-action" id="togglePassword" title="Toggle password" aria-label="Toggle password">
+              👁️
+            </button>
+          </div>
+          <!-- Password Strength -->
+          <div class="password-strength">
+            <div class="strength-bar">
+              <div class="strength-fill" id="strengthFill"></div>
+            </div>
+            <div class="strength-text" id="strengthText">Enter a password to see strength</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="confirmPassword">Confirm Password</label>
+          <div class="input-wrapper">
+            <input
+              class="form-input"
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              placeholder="Re-enter your password"
+              autocomplete="new-password"
+              required
+            />
+            <span class="input-icon">🔒</span>
+          </div>
+          <div id="matchHint" style="font-size:0.75rem; margin-top:0.3rem;"></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="registerBtn">
+          <div class="spinner" id="registerSpinner"></div>
+          <span id="registerBtnText">🛡️ Create Secure Account</span>
+        </button>
+      </form>
+
+      <!-- Security info -->
+      <div class="divider">Your Security Guarantee</div>
+      <div class="security-badges">
+        <span class="badge badge-cyan" title="Passwords hashed with bcrypt cost=12">🔒 bcrypt-12</span>
+        <span class="badge badge-purple" title="SQL injection protected">💉 No SQLi</span>
+        <span class="badge badge-green" title="Input sanitized server-side">✅ Validated</span>
+        <span class="badge badge-cyan" title="Optional TOTP 2FA">📱 2FA Option</span>
+      </div>
+
+      <div class="auth-link">
+        Already have an account? <a href="/" id="loginLink">Sign In</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/particles.js"></script>
+  <script src="/js/register.js"></script>
+</body>
+</html>

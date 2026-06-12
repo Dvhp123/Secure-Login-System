@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SecureAuth — Dashboard</title>
+  <meta name="description" content="Your secure account dashboard." />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-radial"></div>
+
+  <div class="dashboard-wrapper">
+
+    <!-- Header -->
+    <header class="dashboard-header">
+      <div class="dashboard-logo">
+        <span class="icon">🔐</span>
+        <h1>SecureAuth Dashboard</h1>
+      </div>
+      <div class="dashboard-user">
+        <div>
+          <div class="user-info">
+            <div class="name" id="headerUsername">Loading...</div>
+            <div class="role">Authenticated User</div>
+          </div>
+        </div>
+        <div class="user-avatar" id="userAvatar">?</div>
+        <button class="btn btn-secondary btn-sm" id="logoutBtn">🚪 Logout</button>
+      </div>
+    </header>
+
+    <!-- Alert -->
+    <div class="alert" id="alertBox" style="margin-bottom:1.5rem;" role="alert">
+      <span id="alertIcon">⚠️</span>
+      <span id="alertMsg"></span>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card stat-cyan" style="animation-delay:0s">
+        <div class="stat-icon">✅</div>
+        <div class="stat-value" id="statSuccess">—</div>
+        <div class="stat-label">Successful Logins</div>
+      </div>
+      <div class="stat-card stat-red" style="animation-delay:0.1s">
+        <div class="stat-icon">❌</div>
+        <div class="stat-value" id="statFailed">—</div>
+        <div class="stat-label">Failed Attempts</div>
+      </div>
+      <div class="stat-card stat-purple" style="animation-delay:0.2s">
+        <div class="stat-icon">🕐</div>
+        <div class="stat-value" id="statSession">—</div>
+        <div class="stat-label">Session Active (min)</div>
+      </div>
+      <div class="stat-card stat-green" style="animation-delay:0.3s">
+        <div class="stat-icon">📱</div>
+        <div class="stat-value" id="stat2FA">—</div>
+        <div class="stat-label">2FA Status</div>
+      </div>
+    </div>
+
+    <!-- Content Grid -->
+    <div class="content-grid">
+
+      <!-- Account Details -->
+      <div class="panel">
+        <div class="panel-title">👤 Account Details</div>
+        <div class="account-detail">
+          <span class="detail-label">Username</span>
+          <span class="detail-value" id="detailUsername">—</span>
+        </div>
+        <div class="account-detail">
+          <span class="detail-label">Email</span>
+          <span class="detail-value" id="detailEmail">—</span>
+        </div>
+        <div class="account-detail">
+          <span class="detail-label">Member Since</span>
+          <span class="detail-value" id="detailCreated">—</span>
+        </div>
+        <div class="account-detail">
+          <span class="detail-label">Last Login</span>
+          <span class="detail-value" id="detailLastLogin">—</span>
+        </div>
+        <div class="account-detail">
+          <span class="detail-label">Session Started</span>
+          <span class="detail-value" id="detailSession">—</span>
+        </div>
+      </div>
+
+      <!-- 2FA Management -->
+      <div class="panel">
+        <div class="panel-title">📱 Two-Factor Authentication</div>
+        <div class="twofa-panel">
+          <div>
+            <p style="color:var(--text-secondary); font-size:0.88rem; margin-bottom:0.75rem;">
+              Protect your account with Time-based One-Time Passwords (TOTP) via Google Authenticator or Authy.
+            </p>
+          </div>
+          <div>
+            <span class="twofa-status twofa-disabled" id="twofaStatus">⭕ Disabled</span>
+          </div>
+          <div style="display:flex; gap:0.75rem; flex-wrap:wrap;" id="twofaActions">
+            <button class="btn btn-success btn-sm" id="enable2FABtn">📱 Enable 2FA</button>
+          </div>
+          <p style="font-size:0.78rem; color:var(--text-muted); margin-top:0.5rem;" id="twofaNote">
+            Enabling 2FA adds an extra verification step on every login.
+          </p>
+        </div>
+      </div>
+
+      <!-- Login History (full width) -->
+      <div class="panel" style="grid-column: 1 / -1;">
+        <div class="panel-title">📋 Recent Login History</div>
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th>Status</th>
+              <th>IP Address</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="historyBody">
+            <tr><td colspan="3" style="color:var(--text-muted); text-align:center; padding:1rem;">Loading history...</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

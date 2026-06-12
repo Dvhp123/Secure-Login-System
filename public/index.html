@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SecureAuth — Login</title>
+  <meta name="description" content="Secure Login System with bcrypt password hashing, session management, and two-factor authentication." />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <!-- Background Effects -->
+  <div class="bg-grid"></div>
+  <div class="bg-radial"></div>
+  <div class="particles" id="particles"></div>
+
+  <div class="page-wrapper">
+    <div class="auth-card">
+
+      <!-- Brand -->
+      <div class="brand">
+        <div class="brand-icon">🔐</div>
+        <h1>SecureAuth</h1>
+        <p>Cybersecurity · Secure Login System</p>
+      </div>
+
+      <!-- Alert -->
+      <div class="alert alert-error" id="alertBox" role="alert">
+        <span>⚠️</span>
+        <span id="alertMsg">Error message here</span>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" novalidate autocomplete="off">
+
+        <div class="form-group">
+          <label class="form-label" for="username">Username</label>
+          <div class="input-wrapper">
+            <input
+              class="form-input"
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Enter your username"
+              autocomplete="username"
+              required
+            />
+            <span class="input-icon">👤</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <div class="input-wrapper">
+            <input
+              class="form-input"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              required
+            />
+            <span class="input-icon">🔑</span>
+            <button type="button" class="input-action" id="togglePassword" title="Toggle password visibility" aria-label="Toggle password">
+              👁️
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="loginBtn">
+          <div class="spinner" id="loginSpinner"></div>
+          <span id="loginBtnText">Sign In</span>
+          <span>→</span>
+        </button>
+      </form>
+
+      <!-- Divider -->
+      <div class="divider">Security Features</div>
+
+      <!-- Security Badges -->
+      <div class="security-badges">
+        <span class="badge badge-cyan">🔒 bcrypt</span>
+        <span class="badge badge-purple">🛡️ Rate Limited</span>
+        <span class="badge badge-green">📱 2FA Ready</span>
+        <span class="badge badge-cyan">🍪 HttpOnly</span>
+      </div>
+
+      <!-- Register link -->
+      <div class="auth-link">
+        Don't have an account? <a href="/register" id="registerLink">Create Account</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/particles.js"></script>
+  <script src="/js/login.js"></script>
+</body>
+</html>

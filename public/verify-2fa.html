@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SecureAuth — Two-Factor Verification</title>
+  <meta name="description" content="Verify your identity with two-factor authentication." />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-radial"></div>
+  <div class="particles" id="particles"></div>
+
+  <div class="page-wrapper">
+    <div class="auth-card">
+
+      <!-- Brand -->
+      <div class="brand">
+        <div class="brand-icon">🔢</div>
+        <h1>Verify Identity</h1>
+        <p>Enter the 6-digit code from your authenticator</p>
+      </div>
+
+      <!-- Alert -->
+      <div class="alert" id="alertBox" role="alert">
+        <span id="alertIcon">⚠️</span>
+        <span id="alertMsg"></span>
+      </div>
+
+      <div style="text-align:center; margin-bottom:1.5rem;">
+        <div style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.5rem 1.2rem;
+          background:var(--cyan-dim); border:1px solid rgba(0,200,255,0.25); border-radius:99px;
+          font-size:0.82rem; color:var(--cyan);">
+          📱 Open Google Authenticator or Authy
+        </div>
+      </div>
+
+      <div class="otp-inputs" id="otpInputs" style="margin-bottom:1.5rem;">
+        <input class="otp-digit" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" aria-label="OTP digit 1" />
+        <input class="otp-digit" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" aria-label="OTP digit 2" />
+        <input class="otp-digit" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" aria-label="OTP digit 3" />
+        <input class="otp-digit" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" aria-label="OTP digit 4" />
+        <input class="otp-digit" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" aria-label="OTP digit 5" />
+        <input class="otp-digit" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" aria-label="OTP digit 6" />
+      </div>
+
+      <!-- Timer -->
+      <div style="text-align:center; margin-bottom:1rem;">
+        <div style="font-size:0.82rem; color:var(--text-muted);">
+          Code expires in: <span id="timer" style="color:var(--yellow); font-family:'JetBrains Mono',monospace; font-weight:700;">30s</span>
+        </div>
+        <div style="height:3px; background:rgba(255,255,255,0.06); border-radius:99px; margin-top:0.5rem; overflow:hidden;">
+          <div id="timerBar" style="height:100%; background:var(--cyan); border-radius:99px; transition:width 1s linear; width:100%;"></div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" id="verifyBtn" disabled>
+        <div class="spinner" id="verifySpinner"></div>
+        <span id="verifyBtnText">→ Verify & Login</span>
+      </button>
+
+      <div class="auth-link" style="margin-top:1rem;">
+        <a href="/">← Cancel, go back to Login</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/particles.js"></script>
+  <script src="/js/verify2fa.js"></script>
+</body>
+</html>
