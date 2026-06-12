@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🔐 Secure Login System
 
 A full-stack cybersecurity-focused authentication system built with **Node.js** and **Express**. It features bcrypt password hashing, server-side session management, Two-Factor Authentication (TOTP / 2FA), rate limiting, and security headers — all running with **zero native dependencies** (no C++ compilation required).
@@ -196,3 +197,7 @@ To use the Two-Factor Authentication (2FA) feature, you need an authenticator ap
 
 This project is for educational and demonstration purposes.
 
+=======
+# Secure-Login-System
+🔐 Secure Login System is a robust, full-stack authentication web application built using Node.js and Express, designed with a strong focus on modern cybersecurity best practices. Running with zero native dependencies for easy cross-platform deployment, it implements a highly secure user lifecycle.
+>>>>>>> d88c0a0f3891b15e6839e26cb3fe411b283f3937
